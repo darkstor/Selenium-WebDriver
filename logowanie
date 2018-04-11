@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+class Logowanie1():
+    def test1(self):
+        # podstawowa konfiguracja
+        URL = "https://www.wp.pl/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.implicitly_wait(10)
+        driver.get(URL)
+        # znajdujemy pola login oraz haslo i wpisujemy przykladowe dane
+
+        LoginButton = driver.find_element(By.XPATH, '//a[@title="Poczta"]')
+        LoginButton.click()
+        Login = driver.find_element(By.CSS_SELECTOR, 'input[name="login_username"]')
+        Login.send_keys('przykladow@poczta.wp.pl')
+        Pass = driver.find_element(By.XPATH, '//input[@id="password"]')
+        Pass.send_keys('1234Alfa')
+        time.sleep(3)
+        Login1 = driver.find_element(By.CSS_SELECTOR, '#btnSubmit')
+        Login1.click()
+        time.sleep(3)
+        driver.quit()
+
+kk = Logowanie1()
+kk.test1()
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
