@@ -1,0 +1,58 @@
+from selenium.webdriver.common.by import By
+
+
+class FindElemet():
+
+    def __init__(self):
+        self.driver = driver
+
+    def GetByType(self, locatorType):
+        locatorType = locatorType.lower()
+        if locatorType == 'id':
+            return By.ID
+        elif locatorType =='xpath'
+            return  By.XPATH
+        else:
+            print("Elemnt nie wspierany")
+
+        return False
+
+    def getElemnt(self, locator, locatorType='id'):
+        element = None
+        try:
+            locatorType = locatorType.lower()
+            byType = self.GetByType(locatorType)
+            element = self.driver.find_element(byType, locator)
+            print("Elemnt znaleziono")
+        except:
+            print("Element nie znaleziony")
+        return element
+        
+        --------------------------------------------------------------------------------------------------
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+from utilities.test_Test2 import testTest2
+import time
+
+
+class RezerwacjaB():
+
+    def wybieranie(self):
+        Url = "https://poczta.interia.pl/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.implicitly_wait(10)
+        tT2 = testTest2(driver)
+        driver.get(Url)
+
+        Click = tT2.getElemnt("formEmail")
+        Click.send_keys("1, 2, 3")
+        time.sleep(3)
+
+
+
+
+
+gg = RezerwacjaB()
+gg.wybieranie() 
